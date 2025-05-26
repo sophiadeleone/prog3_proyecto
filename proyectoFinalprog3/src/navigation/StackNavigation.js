@@ -18,15 +18,7 @@ function StackNavigation() {
                 }
             }
             />
-            <Stack.Screen 
-            name='Home' 
-            component={Home}
-            options={
-                {
-                    headerShown: false
-                }
-            }
-            />
+           
             <Stack.Screen
                 name='Login'
                 component={Login}
@@ -35,15 +27,16 @@ function StackNavigation() {
                 }}
             />
             <Stack.Screen
-                name='Profile'
-                component={Profile}
+                name='Tab'
+                component={BottomTabs}
                 options={{
                     headerShown:false
                 }}
             />
-         
+            
         </Stack.Navigator>
     )
 }
 
 export default StackNavigation
+

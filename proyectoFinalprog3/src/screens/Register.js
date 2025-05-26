@@ -8,7 +8,8 @@ class Register extends Component {
         this.state = {
             email: '',
             username: '',
-            password: ''
+            password: '',
+            errorMessage: ''
         };
     }
 
@@ -29,16 +30,16 @@ class Register extends Component {
 
     registrarUsuario(email, password, username){
         console.log('email', email)
-        console.log('password', password)
-        if(
-            (email!= " " && 
-            password !== " "
-            && 
-            username !== " "
-            )
-            &&
-            email.includes("@") //me ahorro pasos que firebase va a pinchar  y pro eso tamb pongo length
-        ) {
+        console.log('password', password) 
+        //me adelanto a lo que firewal te va a decir osea me ahorro pasos que firebase va a pinchar
+        if (email === '' && password === '' && username === '') {
+            this.setState({ errorMessage: 'Todos los campos son obligatorios' });
+        } else if (!email.includes('@')) {
+            this.setState({ errorMessage: 'Email mal formateado' });
+        } else if (password.length < 6) {
+            this.setState({ errorMessage: 'La password debe tener una longitud mínima de 6 caracteres' });
+        } else {
+       
             auth.createUserWithEmailAndPassword (email, password)
             .then( ()=> {
                 db.collection("users").add({
@@ -50,10 +51,10 @@ class Register extends Component {
                     .then(() => {
                         this.props.navigation.navigate("Login");
                     })
-                    .catch(err => console.log("Error al crear el documento de usuario:", err));
+                    .catch(err => this.setState({ error: 'Error al guardar usuario en DB' }));
                 
             })
-            .catch(err => console.log ("err:", err))
+            .catch(err => console.log ("err:", err.message))
         }
     }
 
@@ -78,25 +79,30 @@ class Register extends Component {
 
                 <TextInput
                     style={styles.input}
-                    placeholder="Username"
+                    placeholder="Nombre de usuario"
                     onChangeText={(text) => this.setState({ username: text })}
                     value={this.state.username}
                 />
 
                 <TextInput
                     style={styles.input}
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     secureTextEntry={true}
                     onChangeText={(text) => this.setState({ password: text })}
                     value={this.state.password}
                 />
+                 
+                 {/* Muestro erroor si existe */}
+                {this.state.error !== '' && (
+                    <Text style={styles.errorText}>{this.state.error}</Text>
+                )}
 
                 <TouchableOpacity onPress={() => this.registrarUsuario(this.state.email, this.state.password, this.state.username)} style={styles.boton}>
                     <Text style={styles.textoBoton}>Registrate</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => this.redireccionar('Login')} style={styles.boton}>
-                    <Text style={styles.textoBoton}>Ir al Login</Text>
+                <TouchableOpacity onPress={() => this.redireccionar('Login')} style={styles.textoBotonSecundario}>
+                    <Text style={styles.textoBotonSecundario}>Ya tengo cuenta</Text>
                 </TouchableOpacity>
 
                 {/* Vista de datos en tiempo real para que cheque que hicelas cosas bien desp lo tenog que borrar!!, profs esto es para mi*/}
@@ -110,93 +116,61 @@ class Register extends Component {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: 10,
-        marginTop: 20
+        paddingHorizontal: '5%',
+        backgroundColor: '#fff'
     },
     titulo: {
-        fontSize: 24,
-        marginBottom: 20
+        fontSize: 26,
+        marginBottom: '6%',
+        fontWeight: 'bold'
     },
     input: {
-        height: 20,
-        paddingVertical: 15,
+        height: 40,
+        paddingVertical: 10,
         paddingHorizontal: 10,
         borderWidth: 1,
         borderColor: '#ccc',
         borderRadius: 6,
-        marginVertical: 10,
-        width: '100%'
+        marginVertical: '2%',
+        width: '90%',
+        backgroundColor: '#f5f5f5'
     },
     boton: {
         backgroundColor: '#28a745',
-        paddingHorizontal: 10,
-        paddingVertical: 6,
-        borderRadius: 4,
-        borderWidth: 1,
-        borderColor: '#28a745',
-        textAlign: 'center',
-        marginVertical: 10,
-        width: '100%'
+        paddingVertical: 10,
+        borderRadius: 6,
+        marginVertical: '2%',
+        width: '90%',
+        alignItems: 'center'
     },
     textoBoton: {
         color: '#fff',
-        textAlign: 'center'
+        fontWeight: 'bold'
     },
-    dataContainer: {
-        marginTop: 20,
-        width: '100%',
-        backgroundColor: '#f9f9f9',
-        padding: 15,
-        borderRadius: 6
+    botonSecundario: {
+        backgroundColor: '#e0e0e0',
+        paddingVertical: 10,
+        borderRadius: 6,
+        width: '90%',
+        alignItems: 'center',
+        marginTop: '2%'
     },
-    dataText: {
-        fontSize: 16,
+    textoBotonSecundario: {
         color: '#333'
+    },
+    errorText: {
+        color: 'red',
+        marginVertical: '2%',
+        width: '90%',
+        textAlign: 'center'
     }
 });
+
+
 
 export default Register;

@@ -3,6 +3,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../screens/Login"
 import BottomTabs from "../navigation/BottomTabs"
 import Register from "../screens/Register";
+import Home from "../navigation/Home"
+import Profile from "../screens/Profile";
+
 const Stack = createNativeStackNavigator();
 
 function StackNavigation() {
@@ -12,7 +15,7 @@ function StackNavigation() {
                 name='Login'
                 component={Login}
                 options={{
-                    headerShown:false
+                    headerShown:false //checkear que quieran que ocultemos esto
                 }}
             />
 
@@ -29,6 +32,20 @@ function StackNavigation() {
             <Stack.Screen
                 name='Tab'
                 component={BottomTabs}
+                options={{
+                    headerShown:false
+                }}
+            />
+            <Stack.Screen
+                name='Home'
+                component={Home}
+                options={{
+                    headerShown:false
+                }}
+            />
+            <Stack.Screen
+                name='Profile'
+                component={Profile}
                 options={{
                     headerShown:false
                 }}

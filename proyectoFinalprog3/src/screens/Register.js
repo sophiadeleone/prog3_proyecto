@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import {db, auth} from "../firebase/config"
@@ -19,7 +18,7 @@ class Register extends Component {
     componentDidMount (){
             auth.onAuthStateChanged((user=>{
                 if(user){
-                    this.props.navigation.navigate("HomeMenu")
+                    this.props.navigation.navigate("BottomTabs")
                 }
             }))
         }
@@ -34,9 +33,11 @@ class Register extends Component {
         if(
             (email!= " " && 
             password !== " "
+            && 
+            username !== " "
             )
             &&
-            email.includes("@")
+            email.includes("@") //me ahorro pasos que firebase va a pinchar  y pro eso tamb pongo length
         ) {
             auth.createUserWithEmailAndPassword (email, password)
             .then( ()=> {

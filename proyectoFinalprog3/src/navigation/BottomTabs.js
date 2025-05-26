@@ -2,7 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from '../screens/Home';
-import Perfil from '../screens/Perfil';
+import Profile from '../screens/Profile';
 import { FontAwesome } from '@expo/vector-icons'
 
 const Tab= createBottomTabNavigator();

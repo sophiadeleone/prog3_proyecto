@@ -15,7 +15,7 @@ function StackNavigation() {
                 name='Login'
                 component={Login}
                 options={{
-                    headerShown:false //checkear que quieran que ocultemos esto
+                    headerShown:false
                 }}
             />
 

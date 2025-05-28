@@ -27,7 +27,7 @@ class Login extends Component {
         // Intentar loguear al usuario
         auth.signInWithEmailAndPassword(email, password)
             .then(() => {
-                this.props.navigation.navigate("Home");
+                this.props.navigation.navigate("Tab");
             })
             .catch((err) => {
                 console.log("el error de login es", JSON.parse(err.message).error.message)

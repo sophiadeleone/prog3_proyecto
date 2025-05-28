@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 import { FontAwesome } from '@expo/vector-icons'
+import CrearPosts from '../screens/CrearPosts';
 
 const Tab= createBottomTabNavigator();
 
@@ -26,8 +27,15 @@ export default function BottomTabs() {
           }}
           />
 
+        <Tab.Screen 
+          name='CrearPosts' 
+          component={CrearPosts}
+          options={{
+            tabBarIcon: () => <FontAwesome name='plus' size={24} color={'black'} />
+          }}
+          />
+
     </Tab.Navigator>
   )
 }
 
-//falta el de crear posteo Y HACER UN COMPONENTE DE ESTO

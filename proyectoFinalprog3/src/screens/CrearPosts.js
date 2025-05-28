@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import { db, auth } from '../firebase/config';
 
+
 export default class CrearPosts extends Component {
 
   constructor(props) {
@@ -20,11 +21,13 @@ export default class CrearPosts extends Component {
             owner: auth.currentUser.email,
             description: this.state.description,
             createdAt: Date.now(),
+            
         })
         .then(() => {
-            
-            this.props.navigation.navigate('Tab'); // o 'Home', probar //this.setState({ description: '', error: '' });
-        })
+          this.props.navigation.navigate("Home");
+      })
+        
+        
         .catch(error => console.log(error));
     }
   }

@@ -17,17 +17,26 @@ export default class CrearPosts extends Component {
     if (this.state.description === '') {
         this.setState({ error: 'El post no puede estar vacío' });
     } else {
+      
+
         db.collection('posts').add({
             owner: auth.currentUser.email,
             description: this.state.description,
             createdAt: Date.now(),
+            likes: []
             
         })
         .then(() => {
-          this.props.navigation.navigate("Home");
-      })
+          // Limpio el campo para que cuando el usuario quiera volver a escribir, el campo este vacio. 
+          this.setState({
+            description: '',
+            error: ''
+          });
+          // Navegoo a Home
+          this.props.navigation.navigate("Home")
+        })
         
-        
+      
         .catch(error => console.log(error));
     }
   }
@@ -52,6 +61,7 @@ export default class CrearPosts extends Component {
               <TouchableOpacity onPress={() => this.crearPost()} style={styles.boton}>
                   <Text style={styles.textoBoton}>Publicar</Text>
               </TouchableOpacity>
+
           </View>
       );
 

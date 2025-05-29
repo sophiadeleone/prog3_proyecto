@@ -5,11 +5,13 @@ import Profile from '../screens/Profile';
 import { FontAwesome } from '@expo/vector-icons'
 import CrearPosts from '../screens/CrearPosts';
 
+
 const Tab= createBottomTabNavigator();
 
 export default function BottomTabs() {
   return (
-    <Tab.Navigator>
+//con tabBarShowLabel: false elimino los nombres que acompanian a los iconos. Con headerShown: false, elimino el header que en stacknavigation use headerShown:false. Sin headershown no se eliminaba. 
+    <Tab.Navigator screenOptions={{tabBarShowLabel: false,  headerShown: false }} > 
         <Tab.Screen 
           name='Home' 
           component={Home}
@@ -30,11 +32,12 @@ export default function BottomTabs() {
           name='CrearPosts' 
           component={CrearPosts}
           options={{
-            tabBarIcon: () => <FontAwesome name='plus' size={24} color={'black'} />
+            tabBarIcon: () => <FontAwesome name='plus' size={24} color={'green'} />
           }}
           />
 
     </Tab.Navigator>
+
   )
 }
 

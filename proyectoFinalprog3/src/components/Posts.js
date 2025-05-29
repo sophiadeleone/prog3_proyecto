@@ -29,8 +29,11 @@ class Posts extends Component {
           loading: false
         });
       });
+  
+  
   }
-
+  
+  
   render() {
     return (
       <View style={styles.flatlist}>
@@ -47,6 +50,7 @@ class Posts extends Component {
                 <Text style={styles.autor}>{item.data.owner}</Text>
                 <Text style={styles.descripcion}>{item.data.description}</Text>
                 
+                
               </View>
             
             )}
@@ -55,12 +59,9 @@ class Posts extends Component {
       </View>
     );
   }
+  
 }
-//ESTO ESTA BIEN PARA AGREGARLE FECHA AL POST? CONTROLAR
 
-//<Text style={styles.fecha}>
-//{new Date(item.data.createdAt).toLocaleString()}
-//</Text>
 export default Posts;
 
 const styles = StyleSheet.create({

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { db } from '../firebase/config';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
+import { db, auth } from '../firebase/config';
 
 
 class Posts extends Component {
@@ -33,22 +33,22 @@ class Posts extends Component {
   
   }
   
-    meGusta(idPost, arrayDeLikes) {
+  meGusta(idPost, arrayDeLikes) {
     const user = auth.currentUser.email;
-
+  
     if (arrayDeLikes.includes(user)) {
-      //para q si ya le doy like lo saca
+      // Si ya le dio like, se lo eliminamos
       const nuevoArray = arrayDeLikes.filter(email => email !== user);
-
+  
       db.collection('posts')
         .doc(idPost)
         .update({
           likes: nuevoArray
         });
     } else {
-      // para q si le dio like lo agrego
+      // Si no le dio like, lo agregamos
       arrayDeLikes.push(user);
-
+  
       db.collection('posts')
         .doc(idPost)
         .update({
@@ -56,6 +56,7 @@ class Posts extends Component {
         });
     }
   }
+  
   render() {
     return (
       <View style={styles.flatlist}>
@@ -72,7 +73,7 @@ class Posts extends Component {
                 <Text style={styles.autor}>{item.data.owner}</Text>
                 <Text style={styles.descripcion}>{item.data.description}</Text>
                 <TouchableOpacity onPress={() => this.meGusta(item.id, item.data.likes)}>
-                  <Text style={styles.like}>Me gusta ({item.data.likes.length})</Text>
+                  <Text style={styles.like}>Me gusta: ({item.data.likes.length})</Text>
                 </TouchableOpacity>
                 
               </View>

@@ -66,7 +66,7 @@ class Profile extends Component {
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
                         <View style={styles.postContainer}>
-                            <Text>{item.data.texto}</Text>
+                            <Text>{item.data.description}</Text>
                             <TouchableOpacity onPress={() => this.borrarPosteo(item.id)} style={styles.botonEliminar}>
                                 <Text style={styles.textoBotonEliminar}>Eliminar</Text>
                             </TouchableOpacity>

@@ -32,7 +32,7 @@ class Register extends Component {
         console.log('email', email)
         console.log('password', password) 
         //me adelanto a lo que firewal te va a decir osea me ahorro pasos que firebase va a pinchar
-        if (email === '' && password === '' && username === '') {
+        if (email === '' || password === '' || username === '') { //si pasa una O la otra O la otra, te da el error
             this.setState({ errorMessage: 'Todos los campos son obligatorios' });
         } else if (!email.includes('@')) {
             this.setState({ errorMessage: 'Email mal formateado' });
@@ -51,10 +51,11 @@ class Register extends Component {
                     .then(() => {
                         this.props.navigation.navigate("Login");
                     })
-                    .catch(err => this.setState({ error: 'Error al guardar usuario en DB' }));
+                    .catch(err => this.setState({ errorMessage: 'Error al guardar usuario en DB' }));
                 
             })
-            .catch(err => console.log ("err:", err.message))
+            .catch(err => this.setState({ errorMessage: err.message }));
+
         }
     }
 
@@ -93,8 +94,8 @@ class Register extends Component {
                 />
                  
                  {/* Muestro erroor si existe */}
-                {this.state.error !== '' && (
-                    <Text style={styles.errorText}>{this.state.error}</Text>
+                {this.state.errorMessage !== '' && (
+                    <Text style={styles.errorText}>{this.state.errorMessage}</Text>
                 )}
 
                 <TouchableOpacity onPress={() => this.registrarUsuario(this.state.email, this.state.password, this.state.username)} style={styles.boton}>

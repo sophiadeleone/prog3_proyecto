@@ -1,26 +1,21 @@
-import app from "firebase/app"
-import firebase from "firebase"
+// import app from "firebase/app"
+// import firebase from "firebase"
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAMzd8lSt0-A58CnJgenj20YX9AykgnHWI",
-  authDomain: "progra3f.firebaseapp.com",
-  projectId: "progra3f",
-  storageBucket: "progra3f.firebasestorage.app",
-  messagingSenderId: "54288035159",
-  appId: "1:54288035159:web:8c856af8c4f6ba57986212"
-};
-app.initializeApp(firebaseConfig)
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAMzd8lSt0-A58CnJgenj20YX9AykgnHWI",
+//   authDomain: "progra3f.firebaseapp.com",
+//   projectId: "progra3f",
+//   storageBucket: "progra3f.firebasestorage.app",
+//   messagingSenderId: "54288035159",
+//   appId: "1:54288035159:web:8c856af8c4f6ba57986212"
+// };
+// app.initializeApp(firebaseConfig)
 
-export const auth = firebase.auth()
-export const storage = app.storage()
-export const db = app.firestore()
+// export const auth = firebase.auth()
+// export const storage = app.storage()
+// export const db = app.firestore()
 
-
-
-
-
-/** FIREBASE SOPHIE. 
 import app from "firebase/app"
 import firebase from "firebase"
 
@@ -39,4 +34,3 @@ app.initializeApp(firebaseConfig)
 export const auth = firebase.auth()
 export const storage = app.storage()
 export const db = app.firestore()
-*/

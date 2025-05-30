@@ -33,7 +33,29 @@ class Posts extends Component {
   
   }
   
-  
+    meGusta(idPost, arrayDeLikes) {
+    const user = auth.currentUser.email;
+
+    if (arrayDeLikes.includes(user)) {
+      //para q si ya le doy like lo saca
+      const nuevoArray = arrayDeLikes.filter(email => email !== user);
+
+      db.collection('posts')
+        .doc(idPost)
+        .update({
+          likes: nuevoArray
+        });
+    } else {
+      // para q si le dio like lo agrego
+      arrayDeLikes.push(user);
+
+      db.collection('posts')
+        .doc(idPost)
+        .update({
+          likes: arrayDeLikes
+        });
+    }
+  }
   render() {
     return (
       <View style={styles.flatlist}>
@@ -49,7 +71,9 @@ class Posts extends Component {
               <View style={styles.card}>
                 <Text style={styles.autor}>{item.data.owner}</Text>
                 <Text style={styles.descripcion}>{item.data.description}</Text>
-                
+                <TouchableOpacity onPress={() => this.meGusta(item.id, item.data.likes)}>
+                  <Text style={styles.like}>Me gusta ({item.data.likes.length})</Text>
+                </TouchableOpacity>
                 
               </View>
             
@@ -102,5 +126,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: 'right',
     color: '#777'
-  }
+  },
+  like: {
+    fontSize: 14,
+    color: '#007bff'
+  },
 });

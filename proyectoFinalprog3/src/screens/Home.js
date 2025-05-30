@@ -7,6 +7,7 @@ class Home extends Component {
       render() {
         return (
           <View style={styles.container}>
+    
             <Posts />
 
           </View>

@@ -68,12 +68,13 @@ class Posts extends Component {
           <FlatList
             data={this.state.posteos}
             keyExtractor={item => item.id.toString()}
-            renderItem={({ item }) => (
+            renderItem={({ item }) => 
+              (
               <View style={styles.card}>
                 <Text style={styles.autor}>{item.data.owner}</Text>
                 <Text style={styles.descripcion}>{item.data.description}</Text>
                 <TouchableOpacity onPress={() => this.meGusta(item.id, item.data.likes)}>
-                  <Text style={styles.like}>Me gusta: ({item.data.likes.length})</Text>
+                  <Text style={styles.like}>Likes: {item.data.likes.length}</Text>
                 </TouchableOpacity>
                 
               </View>
@@ -88,7 +89,42 @@ class Posts extends Component {
 }
 
 export default Posts;
+/** ESTO FUNCIONA PERO NO SE SI SE PUEDEN PONER DOS RETURNS.
+  render() {
+    return (
+      <View style={styles.flatlist}>
+        <Text style={styles.titulo}>Posteos recientes</Text>
 
+        {this.state.loading ? (
+          <Text style={styles.loading}>Cargando posteos...</Text>
+        ) : (
+          <FlatList
+            data={this.state.posteos}
+            keyExtractor={item => item.id.toString()}
+            renderItem={({ item }) => {
+              const user = auth.currentUser.email;
+              const yaDioLike = item.data.likes.includes(user);
+
+              return (
+                <View style={styles.card}>
+                  <Text style={styles.autor}>{item.data.owner}</Text>
+                  <Text style={styles.descripcion}>{item.data.description}</Text>
+                  <TouchableOpacity onPress={() => this.meGusta(item.id, item.data.likes)}>
+                    <Text style={styles.like}>
+                      {yaDioLike ? 'Deslikear' : 'Me gusta'}: {item.data.likes.length}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              );
+            }}
+          />
+        )}
+      </View>
+    );
+  }
+}
+
+*/
 const styles = StyleSheet.create({
   flatlist: {
     width: '100%',

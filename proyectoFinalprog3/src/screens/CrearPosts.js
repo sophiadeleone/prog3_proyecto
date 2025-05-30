@@ -50,6 +50,7 @@ export default class CrearPosts extends Component {
                   value={this.state.description}
                   onChangeText={(text) => this.setState({ description: text })}
                   placeholder="Comparti lo que pensas con tus amigos!"
+                  placeholderTextColor="#999" //queria que el texto se vea mas clarito y encontre que con placeholderTextColor deja el texto gris. Y tiene que ir en el TextInput
                   style={styles.input}
                   
               />

@@ -101,8 +101,21 @@ const styles = StyleSheet.create({
     },
     info: {
         fontSize: 16,
-        marginBottom: 5
-    },
+        marginBottom: 8,
+        color: '#444',                
+        backgroundColor: '#f0f4f8',   
+        paddingVertical: 8,
+        paddingHorizontal: 12,
+        borderRadius: 8,
+        width: '100%',
+        textAlign: 'left',
+        fontWeight: '500',
+        shadowColor: '#000',
+        shadowOpacity: 0.05,
+        shadowRadius: 2,
+        elevation: 1
+      },
+      
     postContainer: {
         borderWidth: 1,
         borderColor: '#ccc',

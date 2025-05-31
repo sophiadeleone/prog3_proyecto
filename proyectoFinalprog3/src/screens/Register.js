@@ -118,59 +118,66 @@ class Register extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: '5%',
-        backgroundColor: '#fff'
-    },
-    titulo: {
-        fontSize: 26,
-        marginBottom: '6%',
-        fontWeight: 'bold'
-    },
-    input: {
-        height: 40,
-        paddingVertical: 10,
-        paddingHorizontal: 10,
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 6,
-        marginVertical: '2%',
-        width: '90%',
-        backgroundColor: '#f5f5f5'
-    },
-    boton: {
-        backgroundColor: '#28a745',
-        paddingVertical: 10,
-        borderRadius: 6,
-        marginVertical: '2%',
-        width: '90%',
-        alignItems: 'center'
-    },
-    textoBoton: {
-        color: '#fff',
-        fontWeight: 'bold'
-    },
-    botonSecundario: {
-        backgroundColor: '#e0e0e0',
-        paddingVertical: 10,
-        borderRadius: 6,
-        width: '90%',
-        alignItems: 'center',
-        marginTop: '2%'
-    },
-    textoBotonSecundario: {
-        color: '#333'
-    },
-    errorText: {
-        color: 'red',
-        marginVertical: '2%',
-        width: '90%',
-        textAlign: 'center'
-    }
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingHorizontal: '8%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  titulo: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: '8%',
+    color: '#000'
+  },
+  input: {
+    width: '100%',
+    height: 64,
+    borderWidth: 1,
+    borderColor: '#dbdbdb',
+    borderRadius: 4,
+    backgroundColor: '#fafafa',
+    paddingHorizontal: 10,
+    paddingVertical: 12,
+    marginBottom: '4%'
+  },
+  boton: {
+    width: '100%',
+    backgroundColor: '#3897f0',
+    paddingVertical: 12,
+    borderRadius: 4,
+    alignItems: 'center',
+    marginVertical: '4%'
+  },
+  textoBoton: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16
+  },
+  textoBotonSecundario: {
+    color: '#3897f0',
+    fontSize: 14,
+    marginTop: '3%'
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 14,
+    textAlign: 'center',
+    marginBottom: '4%',
+    width: '100%'
+  },
+  dataContainer: {
+    marginTop: '10%',
+    width: '100%',
+    alignItems: 'flex-start'
+  },
+  dataText: {
+    fontSize: 12,
+    color: '#666'
+  }
 });
+
 
 
 

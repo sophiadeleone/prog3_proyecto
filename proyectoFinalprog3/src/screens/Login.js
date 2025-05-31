@@ -81,42 +81,48 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: 10,
-        marginTop: 20
+        paddingHorizontal: '5%',
+        backgroundColor: '#fff'
     },
     titulo: {
-        fontSize: 24,
-        marginBottom: 20
+        fontSize: 28,
+        fontWeight: 'bold',
+        marginBottom: '8%',
+        color: '#000'
     },
     input: {
-        height: 20,
-        paddingVertical: 15,
-        paddingHorizontal: 10,
+        height: 50,
+        paddingVertical: 10,
+        paddingHorizontal: 12,
         borderWidth: 1,
         borderColor: '#ccc',
-        borderRadius: 6,
-        marginVertical: 10,
-        width: '100%'
+        borderRadius: 8,
+        marginVertical: '3%',
+        width: '90%',
+        backgroundColor: '#f5f5f5',
+        fontSize: 16
     },
     boton: {
-        backgroundColor: '#28a745',
-        paddingHorizontal: 10,
-        paddingVertical: 6,
-        borderRadius: 4,
-        borderWidth: 1,
-        borderColor: '#28a745',
-        textAlign: 'center',
-        marginVertical: 10,
-        width: '100%'
+        backgroundColor: '#3897f0',
+        paddingVertical: 12,
+        borderRadius: 8,
+        marginTop: '4%',
+        width: '90%',
+        alignItems: 'center'
     },
     textoBoton: {
         color: '#fff',
-        textAlign: 'center'
+        fontWeight: 'bold',
+        fontSize: 16
     },
     errorText: {
         color: 'red',
-        marginBottom: 10
+        marginTop: '2%',
+        textAlign: 'center',
+        width: '90%',
+        fontSize: 14
     }
 });
+
 
 export default Login;

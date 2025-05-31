@@ -67,6 +67,9 @@ class Register extends Component {
 
     render() {
         return (
+            <View>
+            
+
             <View style={styles.container}>
                 <Text style={styles.titulo}>Formulario de Registro</Text>
 
@@ -105,14 +108,8 @@ class Register extends Component {
                 <TouchableOpacity onPress={() => this.redireccionar('Login')} style={styles.textoBotonSecundario}>
                     <Text style={styles.textoBotonSecundario}>Ya tengo cuenta</Text>
                 </TouchableOpacity>
-
-                {/* Vista de datos en tiempo real para que cheque que hicelas cosas bien desp lo tenog que borrar!!, profs esto es para mi*/}
-                <View style={styles.dataContainer}>
-                    <Text style={styles.dataText}>Email: {this.state.email}</Text>
-                    <Text style={styles.dataText}>Username: {this.state.username}</Text>
-                    <Text style={styles.dataText}>Password: {this.state.password}</Text>
-                </View>
             </View>
+        </View>
         );
     }
 }

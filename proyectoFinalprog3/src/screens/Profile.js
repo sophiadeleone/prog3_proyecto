@@ -49,7 +49,7 @@ class Profile extends Component {
     }
 
     borrarPosteo(id) {
-        db.collection("posts").doc(id).delete(); // delete es parte de la documentacion de firebase firestore, chequear q este ok que lo use pero no se que usar. lo unico que se me ocurrio es firebase.firestore.FieldValue.arrayRemove('elementoAQuitarDelArray')
+        db.collection("posts").doc(id).delete();
 
     }
 

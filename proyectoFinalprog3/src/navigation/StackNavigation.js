@@ -3,13 +3,18 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../screens/Login"
 import BottomTabs from "../navigation/BottomTabs"
 import Register from "../screens/Register";
-
+import Auth from "../screens/Auth";
 
 const Stack = createNativeStackNavigator();
 
 function StackNavigation() {
     return(
         <Stack.Navigator>
+            <Stack.Screen 
+                name='Auth' 
+                component={Auth} 
+                options={{ headerShown: false }} 
+            />
             <Stack.Screen
                 name='Login'
                 component={Login}

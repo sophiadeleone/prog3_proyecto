@@ -7,7 +7,6 @@ class Home extends Component {
       render() {
         return (
           <View style={styles.container}>
-    
             <Posts />
 
           </View>
@@ -22,14 +21,8 @@ const styles = StyleSheet.create({
       flex: 1,
       width: '100%',
       padding: 10,
-      backgroundColor: '#ffffff'
+      backgroundColor: '#E5D9F2' // fondo lavanda claro de la paleta de colores que elegimos
     },
-    titulo: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      marginBottom: 20,
-      textAlign: 'center',
-      color: '#333333'
-    }
   });
+  
   

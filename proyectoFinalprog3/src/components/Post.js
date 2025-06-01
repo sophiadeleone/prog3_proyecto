@@ -63,41 +63,44 @@ export default class Post extends Component {
 
 const styles = StyleSheet.create({
     card: {
-      backgroundColor: '#f5f5f5',
+      backgroundColor: '#F5EFFF', // fondo de la card
+      paddingVertical: 10,
       padding: 15,
       marginBottom: 15,
-      borderRadius: 8,
+      borderRadius: 12,
+      borderWidth: 2,
+      borderColor: '#CDC1FF', //este era el color lila de mi paelta de colores 
       shadowColor: '#000',
       shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.1,
-      shadowRadius: 3,
+      shadowOpacity: 0.05,
+      shadowRadius: 4,
       elevation: 3
     },
     autor: {
       fontWeight: 'bold',
-      color: '#007bff'
+      color: '#7371FC', // lila fuerte
+      fontSize: 15
     },
     descripcion: {
       fontSize: 16,
-      marginVertical: 5,
-      color: '#333'
+      marginVertical: 6,
+      color: '#2E2E2E'
     },
-
     likeContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 5
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginTop: 6
     },
     likeCount: {
-        marginLeft: 6,
-        fontSize: 14,
-        color: '#333'
+      marginLeft: 6,
+      fontSize: 14,
+      color: '#333'
     },
     botonEliminar: {
-      backgroundColor: '#d32f2f',
+      backgroundColor: '#A594F9',
       padding: 10,
-      marginTop: 8,
-      borderRadius: 25,
+      marginTop: 10,
+      borderRadius: 20,
       alignItems: 'center',
       justifyContent: 'center',
       width: 40,
@@ -105,3 +108,4 @@ const styles = StyleSheet.create({
       alignSelf: 'flex-end'
     }
   });
+  

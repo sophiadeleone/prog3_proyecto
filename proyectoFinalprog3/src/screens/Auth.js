@@ -13,7 +13,7 @@ class Auth extends Component {
   }
 
   render() {
-    return null; // pq hace falta renderizar nada, tdo lo q quiero es q rediriga
+    return null; // pq hace falta renderizar nada, tdo lo q quiero es q redirija
   }
 }
 

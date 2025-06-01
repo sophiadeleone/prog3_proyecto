@@ -81,11 +81,12 @@ const styles = StyleSheet.create({
     botonLogout: {
         backgroundColor: '#1976d2',
         padding: 10,
-        borderRadius: 5,
+        borderRadius: 25,
         marginTop: 20,
         alignItems: 'center',
         flexDirection: 'row',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignSelf: 'flex-end' 
     },
     textoBoton: {
         color: 'white',
@@ -95,3 +96,4 @@ const styles = StyleSheet.create({
 });
 
 export default Profile;
+

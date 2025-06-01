@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       borderWidth: 1,
       borderColor: '#CDC1FF', // contorno lila claro
-      width: '100%',
+      width: '25%',
       textAlign: 'left',
       fontWeight: '500',
       fontFamily: 'Georgia' 

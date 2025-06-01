@@ -19,7 +19,7 @@ class Register extends Component {
     componentDidMount (){
             auth.onAuthStateChanged((user=>{
                 if(user){
-                    this.props.navigation.navigate("BottomTabs")
+                    this.props.navigation.navigate("Tab") 
                 }
             }))
         }

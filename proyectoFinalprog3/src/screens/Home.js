@@ -7,7 +7,7 @@ class Home extends Component {
       render() {
         return (
           <View style={styles.container}>
-            <Text style={styles.titulo}>Se está diciendo...</Text> 
+            <Text style={styles.titulo}>Se está diciendo en SOCIALPOST...</Text> 
             <Posts />
 
           </View>

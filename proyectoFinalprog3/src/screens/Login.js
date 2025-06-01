@@ -56,7 +56,7 @@ class Login extends Component {
                     value={this.state.password}
                 />
 
-                {/* Muestra los errores si hay */}
+                
                 {this.state.errorMessage !== "" && (
                     <Text style={styles.errorText}>{this.state.errorMessage}</Text>
                 )}

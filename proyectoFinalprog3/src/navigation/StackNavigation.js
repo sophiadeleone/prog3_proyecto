@@ -15,14 +15,7 @@ function StackNavigation() {
                 component={Auth} 
                 options={{ headerShown: false }} 
             />
-            <Stack.Screen
-                name='Login'
-                component={Login}
-                options={{
-                    headerShown:false
-                }}
-            />
-
+            
              <Stack.Screen 
             name='Register' 
             component={Register}
@@ -32,7 +25,15 @@ function StackNavigation() {
                 }
             }
             />
-           
+
+            <Stack.Screen
+                name='Login'
+                component={Login}
+                options={{
+                    headerShown:false
+                }}
+            />
+            
             <Stack.Screen
                 name='Tab'
                 component={BottomTabs}

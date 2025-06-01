@@ -20,7 +20,7 @@ class Login extends Component {
         }
 
         if (password.length < 6) {
-            this.setState({ errorMessage: "La contraseña debe contener minimo 6 caracteres" });
+            this.setState({ errorMessage: "Credenciales invalidas" });
             return;
         }
 

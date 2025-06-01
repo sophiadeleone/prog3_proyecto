@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
-import { auth, db } from "../firebase/config";
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { auth, db } from "../firebase/config"; 
+import Posts from '../components/Posts'; 
+import { FontAwesome } from '@expo/vector-icons';
 
 class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: [],
             userEmail: '',
             userName: ''
         };
@@ -24,19 +25,6 @@ class Profile extends Component {
                     this.setState({ userName: doc.data().username });
                 });
               });
-
-            db.collection("posts")
-              .where("owner", "==", user.email)
-              .onSnapshot((docs) => {
-                let posts = [];
-                docs.forEach((doc) => {
-                    posts.push({
-                        id: doc.id,
-                        data: doc.data()
-                    });
-                });
-                this.setState({ posts });
-              });
         }
     }
 
@@ -48,34 +36,18 @@ class Profile extends Component {
             .catch(err => console.log("err en signout", err));
     }
 
-    borrarPosteo(id) {
-        db.collection("posts").doc(id).delete();
-
-    }
-
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.titulo}>Mi Perfil</Text>
-                <Text style={styles.info}>Email: {this.state.userEmail}</Text>
-                <Text style={styles.info}>Usuario: {this.state.userName}</Text>
+                <Text style={styles.info}><FontAwesome name='envelope' size={16} />  Email: {this.state.userEmail}</Text>
+                <Text style={styles.info}><FontAwesome name='user' size={16} />  Usuario: {this.state.userName}</Text>
 
-                <Text style={styles.subtitulo}>Mis posteos</Text>
-                <FlatList
-                    data={this.state.posts}
-                    keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => (
-                        <View style={styles.postContainer}>
-                            <Text>{item.data.description}</Text>
-                            <TouchableOpacity onPress={() => this.borrarPosteo(item.id)} style={styles.botonEliminar}>
-                                <Text style={styles.textoBotonEliminar}>Eliminar</Text>
-                            </TouchableOpacity>
-                        </View>
-                    )}
-                />
+                <Posts estaEnPerfil={true} />
 
                 <TouchableOpacity onPress={() => this.logout()} style={styles.botonLogout}>
-                    <Text style={styles.textoBoton}>Cerrar Sesión</Text>
+                    <FontAwesome name='sign-out' size={16} color='white' />
+                    <Text style={styles.textoBoton}>  Cerrar Sesión</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -94,11 +66,6 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         textAlign: 'center'
     },
-    subtitulo: {
-        fontSize: 20,
-        marginTop: 20,
-        marginBottom: 10
-    },
     info: {
         fontSize: 16,
         marginBottom: 8,
@@ -109,37 +76,16 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         width: '100%',
         textAlign: 'left',
-        fontWeight: '500',
-        shadowColor: '#000',
-        shadowOpacity: 0.05,
-        shadowRadius: 2,
-        elevation: 1
-      },
-      
-    postContainer: {
-        borderWidth: 1,
-        borderColor: '#ccc',
-        padding: 10,
-        borderRadius: 5,
-        marginVertical: 5
-    },
-    botonEliminar: {
-        backgroundColor: '#d32f2f',
-        paddingVertical: 5,
-        marginTop: 5,
-        borderRadius: 5,
-        alignItems: 'center'
-    },
-    textoBotonEliminar: {
-        color: '#fff',
-        fontWeight: 'bold'
+        fontWeight: '500'
     },
     botonLogout: {
         backgroundColor: '#1976d2',
         padding: 10,
         borderRadius: 5,
         marginTop: 20,
-        alignItems: 'center'
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'center'
     },
     textoBoton: {
         color: 'white',

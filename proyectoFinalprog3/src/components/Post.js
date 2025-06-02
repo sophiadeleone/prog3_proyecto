@@ -4,17 +4,23 @@ import { db, auth } from '../firebase/config';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default class Post extends Component {
-    constructor(props) {
+    /**constructor(props) {
       super(props);
       this.state = {
-        likes: this.props.data.likes
+        likes: this.props.data.likes 
       };
     }
+
+    EL  this.props.data.likes Lo usamos dentro de la funcion meGusta() . Si no haciamos esto, si ponia un like en home, 
+    despues iba a mi perfil y no veia ese like.
+    Ahora que 
+    EL  this.props.data.likes Lo usamos dentro de la funcion meGusta() todo se actualiza por  props actualizadas por Firestore. 
+    */ 
 
     meGusta() {
         const user = auth.currentUser.email;
         const idPost = this.props.id;
-        const arrayDeLikes = this.state.likes;
+        const arrayDeLikes = this.props.data.likes
       
         if (arrayDeLikes.includes(user)) {
           const nuevoArray = arrayDeLikes.filter(email => email !== user);
@@ -37,17 +43,18 @@ export default class Post extends Component {
         console.log('')
         return (
           <View style={styles.card}>
-            <Text style={styles.autor}>{this.props.data.owner}</Text>
+            <Text style={styles.autorMail}>{this.props.data.owner}</Text>
             <Text style={styles.descripcion}>{this.props.data.description}</Text>
     
             <TouchableOpacity onPress={() => this.meGusta()} style={styles.likeContainer}>
             <FontAwesome
-                name={this.state.likes.includes(auth.currentUser.email) ? 'heart' : 'heart-o'}
+                name={this.props.data.likes.includes(auth.currentUser.email) ? 'heart' : 'heart-o'}
                 size={20}
-                color={this.state.likes.includes(auth.currentUser.email) ? 'red' : '#007bff'}
+                color={this.props.data.likes.includes(auth.currentUser.email) ? 'red' : '#007bff'}
                 />
-            <Text style={styles.likeCount}>{this.state.likes.length}</Text>
+            
             </TouchableOpacity>
+            <Text style={styles.likeCount}>{this.props.data.likes.length}</Text>
 
             {this.props.estaEnPerfil ? (
               <TouchableOpacity
@@ -77,10 +84,11 @@ const styles = StyleSheet.create({
       shadowRadius: 4,
       elevation: 3
     },
-    autor: {
+    autorMail: {
       fontWeight: 'bold',
       color: '#7371FC', // lila fuerte
-      fontSize: 15
+      fontSize: 15,
+      fontFamily: 'Georgia'
     },
     descripcion: {
       fontSize: 16,
@@ -95,7 +103,9 @@ const styles = StyleSheet.create({
     likeCount: {
       marginLeft: 6,
       fontSize: 14,
-      color: '#333'
+      color: '#7371FC',
+      
+
     },
     botonEliminar: {
       backgroundColor: '#A594F9',

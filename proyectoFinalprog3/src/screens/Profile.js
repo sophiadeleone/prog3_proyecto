@@ -57,44 +57,55 @@ class Profile extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        padding: '5%',
-        backgroundColor: '#fff'
+      flex: 1,
+      padding: '5%',
+      backgroundColor: '#E5D9F2' // color lavanda claro
     },
     titulo: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 10,
-        textAlign: 'center'
+      fontSize: 26,
+      fontWeight: 'bold',
+      marginBottom: 20,
+      textAlign: 'center',
+      color: '#7371FC' // lila fuerte
     },
     info: {
-        fontSize: 16,
-        marginBottom: 8,
-        color: '#444',                
-        backgroundColor: '#f0f4f8',   
-        paddingVertical: 8,
-        paddingHorizontal: 12,
-        borderRadius: 8,
-        width: '100%',
-        textAlign: 'left',
-        fontWeight: '500'
+      fontSize: 15,
+      marginBottom: 12,
+      color: '#2E2E2E',
+      backgroundColor: '#F5EFFF', 
+      paddingVertical: 10,
+      paddingHorizontal: 14,
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: '#CDC1FF', // contorno lila claro
+      width: '25%',
+      textAlign: 'left',
+      fontWeight: '500',
+      fontFamily: 'Georgia' 
     },
     botonLogout: {
-        backgroundColor: '#1976d2',
-        padding: 10,
-        borderRadius: 25,
-        marginTop: 20,
-        alignItems: 'center',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignSelf: 'flex-end' 
+      backgroundColor: '#7371FC',
+      paddingVertical: 12,
+      paddingHorizontal: 20,
+      borderRadius: 25,
+      marginTop: 30,
+      alignItems: 'center',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignSelf: 'center',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 3
     },
     textoBoton: {
-        color: 'white',
-        fontSize: 16,
-        fontWeight: 'bold'
+      color: '#fff',
+      fontSize: 16,
+      fontWeight: 'bold'
     }
-});
+  });
+  
 
 export default Profile;
 

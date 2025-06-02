@@ -38,7 +38,7 @@ class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.titulo}>Formulario de Login</Text>
+                <Text style={styles.titulo}>Vemos que ya te has registrado... ingresa tus datos!</Text>
 
                 <TextInput
                     style={styles.input}
@@ -56,7 +56,7 @@ class Login extends Component {
                     value={this.state.password}
                 />
 
-                {/* Muestra los errores si hay */}
+                
                 {this.state.errorMessage !== "" && (
                     <Text style={styles.errorText}>{this.state.errorMessage}</Text>
                 )}
@@ -78,51 +78,60 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: '5%',
-        backgroundColor: '#fff'
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingHorizontal: 20,
+      backgroundColor: '#E5D9F2'
     },
     titulo: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        marginBottom: '8%',
-        color: '#000'
+      fontSize: 28,
+      fontWeight: 'bold',
+      marginBottom: 30,
+      color: '#7371FC',
+      letterSpacing: 0.6
     },
     input: {
-        height: 50,
-        paddingVertical: 10,
-        paddingHorizontal: 12,
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 8,
-        marginVertical: '3%',
-        width: '90%',
-        backgroundColor: '#f5f5f5',
-        fontSize: 16
+      height: 50,
+      paddingVertical: 10,
+      paddingHorizontal: 14,
+      borderWidth: 1.5,
+      borderColor: '#CDC1FF',
+      borderRadius: 12,
+      marginVertical: 10,
+      width: '90%',
+      backgroundColor: '#F5EFFF',
+      fontSize: 16,
+      color: '#2E2E2E'
     },
     boton: {
-        backgroundColor: '#3897f0',
-        paddingVertical: 12,
-        borderRadius: 8,
-        marginTop: '4%',
-        width: '90%',
-        alignItems: 'center'
+      backgroundColor: '#7371FC',
+      paddingVertical: 14,
+      borderRadius: 25,
+      marginTop: 16,
+      width: '90%',
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 3
     },
     textoBoton: {
-        color: '#fff',
-        fontWeight: 'bold',
-        fontSize: 16
+      color: '#fff',
+      fontWeight: 'bold',
+      fontSize: 16,
+      letterSpacing: 0.3
     },
     errorText: {
-        color: 'red',
-        marginTop: '2%',
-        textAlign: 'center',
-        width: '90%',
-        fontSize: 14
+      color: '#D32F2F',
+      marginTop: 6,
+      textAlign: 'center',
+      width: '90%',
+      fontSize: 14
     }
-});
+  });
+  
 
 
 export default Login;

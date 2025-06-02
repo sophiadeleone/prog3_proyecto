@@ -50,7 +50,9 @@ class Posts extends Component {
     return (
       <View style={styles.flatlist}>
         {this.state.loading ? (
-          <ActivityIndicator size='large' color='#7371FC' />
+            <View style={styles.loaderContainer}>
+            <ActivityIndicator size='large' color='#7371FC' />
+          </View>
         ) : (
           <FlatList
             data={this.state.posteos}
@@ -77,5 +79,11 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     backgroundColor: '#E5D9F2' 
+  },
+  loaderContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
+  
 });

@@ -19,7 +19,7 @@ class Register extends Component {
     componentDidMount (){
             auth.onAuthStateChanged((user=>{
                 if(user){
-                    this.props.navigation.navigate("BottomTabs")
+                    this.props.navigation.navigate("Tab") 
                 }
             }))
         }
@@ -67,11 +67,11 @@ class Register extends Component {
 
     render() {
         return (
-            <View>
+            
             
 
             <View style={styles.container}>
-                <Text style={styles.titulo}>Formulario de Registro</Text>
+                <Text style={styles.titulo}>¡Unite a la comunidad!</Text>
 
                 <TextInput
                     style={styles.input}
@@ -109,71 +109,73 @@ class Register extends Component {
                     <Text style={styles.textoBotonSecundario}>Ya tengo cuenta</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+       
         );
     }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: '8%',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  titulo: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: '8%',
-    color: '#000'
-  },
-  input: {
-    width: '100%',
-    height: 64,
-    borderWidth: 1,
-    borderColor: '#dbdbdb',
-    borderRadius: 4,
-    backgroundColor: '#fafafa',
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    marginBottom: '4%'
-  },
-  boton: {
-    width: '100%',
-    backgroundColor: '#3897f0',
-    paddingVertical: 12,
-    borderRadius: 4,
-    alignItems: 'center',
-    marginVertical: '4%'
-  },
-  textoBoton: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 16
-  },
-  textoBotonSecundario: {
-    color: '#3897f0',
-    fontSize: 14,
-    marginTop: '3%'
-  },
-  errorText: {
-    color: 'red',
-    fontSize: 14,
-    textAlign: 'center',
-    marginBottom: '4%',
-    width: '100%'
-  },
-  dataContainer: {
-    marginTop: '10%',
-    width: '100%',
-    alignItems: 'flex-start'
-  },
-  dataText: {
-    fontSize: 12,
-    color: '#666'
-  }
-});
+    container: {
+      flex: 1,
+      backgroundColor: '#E5D9F2',
+      paddingHorizontal: '8%',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    titulo: {
+      fontSize: 28,
+      fontWeight: 'bold',
+      marginBottom: 30,
+      color: '#7371FC',
+      letterSpacing: 0.6
+    },
+    input: {
+      width: '100%',
+      height: 52,
+      borderWidth: 1.5,
+      borderColor: '#CDC1FF',
+      borderRadius: 10,
+      backgroundColor: '#F5EFFF',
+      paddingHorizontal: 14,
+      paddingVertical: 10,
+      marginBottom: 14,
+      fontSize: 16,
+      color: '#2E2E2E'
+    },
+    boton: {
+      width: '100%',
+      backgroundColor: '#7371FC',
+      paddingVertical: 14,
+      borderRadius: 30,
+      alignItems: 'center',
+      marginTop: 10,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 3
+    },
+    textoBoton: {
+      color: '#fff',
+      fontWeight: 'bold',
+      fontSize: 16,
+      letterSpacing: 0.4
+    },
+    textoBotonSecundario: {
+      color: '#A594F9',
+      fontSize: 14,
+      marginTop: 12,
+      textDecorationLine: 'underline'
+    },
+    errorText: {
+      color: '#D32F2F',
+      fontSize: 14,
+      textAlign: 'center',
+      marginBottom: 12,
+      width: '100%'
+    }
+  });
+  
 
 
 

@@ -72,7 +72,7 @@ export default class CrearPosts extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#E5D9F2',
     padding: 20,
     justifyContent: 'center'
   },
@@ -81,39 +81,51 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 20,
-    color: '#333'
+    color: '#7371FC',
+    letterSpacing: 0.5,
+    fontFamily: 'Georgia'
   },
   input: {
-    height: 120,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 8,
-    backgroundColor: '#f9f9f9',
-    padding: 12,
+    height: 200,                     
+    width: '80%',                     
+    alignSelf: 'center',              
+    borderColor: '#CDC1FF',
+    borderWidth: 1.5,
+    borderRadius: 12,
+    backgroundColor: '#F5EFFF',
+    padding: 14,
     fontSize: 16,
     textAlignVertical: 'top',
-    marginBottom: 15
+    marginBottom: 15,
+    color: '#2E2E2E'
   },
+  
   boton: {
-    backgroundColor: '#007bff',
-    paddingVertical: 14,
+    backgroundColor: '#7371FC',
+    paddingVertical: 12,
     paddingHorizontal: 20,
-    borderRadius: 8,
-    alignItems: 'center',
+    borderRadius: 30,
+    width: '50%',              
+    alignSelf: 'center',       
     marginTop: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
     elevation: 3
   },
+  
   textoBoton: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold'
+    fontSize: 17,
+    fontWeight: 'bold',
+    letterSpacing: 0.3,
+    alignSelf: 'center',
+    fontFamily: 'Georgia'
+
   },
   error: {
-    color: 'red',
+    color: '#D32F2F',
     textAlign: 'center',
     marginBottom: 10,
     fontSize: 14

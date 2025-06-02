@@ -15,7 +15,7 @@ export default class Post extends Component {
     despues iba a mi perfil y no veia ese like.
     Ahora que 
     EL  this.props.data.likes Lo usamos dentro de la funcion meGusta() todo se actualiza por  props actualizadas por Firestore. 
-    */ 
+    viky nelson dijo que estaba bien el codigo nos podemos quedar trnquilas*/ 
 
     meGusta() {
         const user = auth.currentUser.email;
@@ -82,7 +82,9 @@ const styles = StyleSheet.create({
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 0.05,
       shadowRadius: 4,
-      elevation: 3
+      elevation: 3,
+      position: 'relative'
+      
     },
     autorMail: {
       fontWeight: 'bold',
@@ -96,17 +98,24 @@ const styles = StyleSheet.create({
       color: '#2E2E2E'
     },
     likeContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginTop: 6
+      position: 'absolute',      
+      top: 10,                   
+      right: 15, 
+      // flexDirection: 'row',
+      // alignItems: 'right',
+      alignSelf: 'flex-end',
+      marginTop: 6,
     },
     likeCount: {
-      marginLeft: 6,
+      position: 'absolute',      
+      top: 45,                   
+      right: 15, 
+      marginRight: 8,
       fontSize: 14,
       color: '#7371FC',
-      
-
+      alignSelf: 'flex-end',
     },
+
     botonEliminar: {
       backgroundColor: '#A594F9',
       padding: 10,

@@ -9,7 +9,8 @@ class Profile extends Component {
         super(props);
         this.state = {
             userEmail: '',
-            userName: ''
+            userName: '',
+            cantidadPosteos: 0
         };
     }
 
@@ -25,6 +26,13 @@ class Profile extends Component {
                     this.setState({ userName: doc.data().username });
                 });
               });
+        
+            db.collection("posts")
+              .where("owner", "==", user.email)
+              .onSnapshot((docs) => {
+                this.setState({ cantidadPosteos: docs.size });
+            });
+            
         }
     }
 
@@ -43,7 +51,11 @@ class Profile extends Component {
                 <Text style={styles.titulo}>Mi Perfil</Text>
                 <Text style={styles.info}><FontAwesome name='envelope' size={16} />  Email: {this.state.userEmail}</Text>
                 <Text style={styles.info}><FontAwesome name='user' size={16} />  Usuario: {this.state.userName}</Text>
-
+                
+                {this.state.cantidadPosteos === 0 && (
+                  <Text style={styles.sinPosteos}>¡Todavía no creaste ningún posteo!</Text>
+                )}
+                
                 <Posts estaEnPerfil={true} />
 
                 <TouchableOpacity onPress={() => this.logout()} style={styles.botonLogout}>
@@ -59,7 +71,8 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       padding: '5%',
-      backgroundColor: '#E5D9F2' // color lavanda claro
+      backgroundColor: '#E5D9F2',
+      alignItems: 'center'
     },
     titulo: {
       fontSize: 26,
@@ -69,19 +82,19 @@ const styles = StyleSheet.create({
       color: '#7371FC' // lila fuerte
     },
     info: {
-      fontSize: 15,
-      marginBottom: 12,
+      fontSize: 18,
+      marginBottom: 16,
       color: '#2E2E2E',
       backgroundColor: '#F5EFFF', 
       paddingVertical: 10,
       paddingHorizontal: 14,
       borderRadius: 10,
       borderWidth: 1,
-      borderColor: '#CDC1FF', // contorno lila claro
-      width: '25%',
-      textAlign: 'left',
+      borderColor: '#CDC1FF',
+      textAlign: 'center',
       fontWeight: '500',
-      fontFamily: 'Georgia' 
+      fontFamily: 'Georgia' ,
+      width: '100%',
     },
     botonLogout: {
       backgroundColor: '#7371FC',
@@ -103,6 +116,24 @@ const styles = StyleSheet.create({
       color: '#fff',
       fontSize: 16,
       fontWeight: 'bold'
+    },
+    sinPosteos: {
+      fontSize: 18,
+      marginBottom: 16,
+      color: '#2E2E2E',
+      backgroundColor: '#F5EFFF', 
+      paddingVertical: 10,
+      paddingHorizontal: 14,
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: '#CDC1FF',
+      textAlign: 'center',
+      fontWeight: '500',
+      fontFamily: 'Georgia' ,
+      width: '100%',
+      height: 70,
+      textAlignVertical: 'center',
+      alignSelf: 'center', 
     }
   });
   

@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../screens/Login"
 import BottomTabs from "../navigation/BottomTabs"
 import Register from "../screens/Register";
-import Auth from "../screens/Auth"
+// import Auth from "../screens/Auth"
 
 const Stack = createNativeStackNavigator();
 //El primer Stack.Screen  es Auth, xq ahi se va a fijar si el usuario ya esta logueado o no. Si no esta logueado, 
@@ -13,21 +13,12 @@ function StackNavigation() {
         <Stack.Navigator>
 
 
-            <Stack.Screen 
+            {/* <Stack.Screen 
                 name="Auth" 
                 component={Auth} 
                 options={{ headerShown: false }} 
-            />
+            /> */}
 
-
-            
-            <Stack.Screen
-                name='Login'
-                component={Login}
-                options={{
-                    headerShown:false
-                }}
-            />
 
              <Stack.Screen 
             name='Register' 
@@ -38,6 +29,16 @@ function StackNavigation() {
                 }
             }
             />
+            
+            <Stack.Screen
+                name='Login'
+                component={Login}
+                options={{
+                    headerShown:false
+                }}
+            />
+
+            
            
             <Stack.Screen
                 name='Tab'

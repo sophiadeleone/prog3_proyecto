@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
-import { auth } from '../firebase/config';
+// hice lo de onAuthStateChanged en register, no necesito esto
+// import React, { Component } from 'react';
+// import { auth } from '../firebase/config';
 
-class Auth extends Component {
-  componentDidMount() {
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        this.props.navigation.navigate('Tab'); // si usiario esta logueado
-      } else {
-        this.props.navigation.navigate('Login'); // significa q el usuario no esta logueado
-      }
-    });
-  }
+// class Auth extends Component {
+//   componentDidMount() {
+//     auth.onAuthStateChanged(user => {
+//       if (user) {
+//         this.props.navigation.navigate('Tab'); // si usiario esta logueado
+//       } else {
+//         this.props.navigation.navigate('Login'); // significa q el usuario no esta logueado
+//       }
+//     });
+//   }
 
-  render() {
-    return null; // pq hace falta renderizar nada, tdo lo q quiero es q redirija
-  }
-}
+//   render() {
+//     return null; // pq hace falta renderizar nada, tdo lo q quiero es q redirija
+//   }
+// }
 
-export default Auth;
+// export default Auth;

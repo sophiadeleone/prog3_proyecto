@@ -37,6 +37,7 @@ class Profile extends Component {
     }
 
     render() {
+        console.log('Render en perfil')
         return (
             <View style={styles.container}>
                 <Text style={styles.titulo}>Mi Perfil</Text>

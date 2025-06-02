@@ -34,6 +34,7 @@ export default class Post extends Component {
       }
     
       render() {
+        console.log('')
         return (
           <View style={styles.card}>
             <Text style={styles.autor}>{this.props.data.owner}</Text>

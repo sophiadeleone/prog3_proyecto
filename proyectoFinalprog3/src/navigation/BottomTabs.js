@@ -26,6 +26,7 @@ export default function BottomTabs() {
           options={{
             tabBarIcon: () => <FontAwesome name='user' size={24} color={'black'} />
           }}
+          
           />
 
         <Tab.Screen 
